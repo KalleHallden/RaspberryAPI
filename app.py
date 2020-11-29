@@ -14,16 +14,14 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return 'Hello kalle'
-@app.route('/lights', methods=['GET'])
+@app.route('/lights')
 def get_lights():
     r = request
-    if r.method == 'GET':
-        return request.get(url + 'lights').json()
-@app.route('/lightsoff', methods=['GET'])
+    return requests.get(url + 'lights').json()
+@app.route('/lightsoff')
 def lights_off():
     r = request
-    if r.method == 'GET':
-        return requests.put(url + 'lights/1/state', data = json.dumps({'on':False}))
+    return requests.put(url + 'lights/1/state', data = json.dumps({'on':False})).json()
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')

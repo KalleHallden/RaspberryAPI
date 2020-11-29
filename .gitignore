@@ -1,1 +1,10 @@
 env/
+tokens.py
+*pyc
+*__
+*.debug
+*.log
+*.exe
+__pycache__/
+*.py[cod]
+.cache
